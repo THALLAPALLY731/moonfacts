@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Moon Facts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+
+        #app {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #2c3e50;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin: 10px 0;
+            padding: 10px;
+            background-color: #e8eaf6;
+            border-radius: 5px;
+        }
+
+        #replace-button {
+            display: block;
+            margin: 20px auto;
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #2c3e50;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #replace-button:hover {
+            background-color: #34495e;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <h1>Interesting Facts About the Moon</h1>
+        <ul id="facts-list"></ul>
+        <button id="replace-button">Replace Facts</button>
+    </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const factsList = document.getElementById('facts-list');
+            const replaceButton = document.getElementById('replace-button');
+
+            const initialFacts = [
+                {
+                    "fact": "Natural Satellite",
+                    "description": "The Moon is Earth's only natural satellite and is the fifth largest moon in the Solar System."
+                },
+                {
+                    "fact": "Distance from Earth",
+                    "description": "The average distance from the Earth to the Moon is about 238,855 miles (384,400 kilometers)."
+                },
+                {
+                    "fact": "Surface Gravity",
+                    "description": "The Moon's gravity is about 1/6th that of Earth's, which means you would weigh significantly less on the Moon."
+                },
+                {
+                    "fact": "Phases",
+                    "description": "The Moon goes through a cycle of phases, including new moon, first quarter, full moon, and last quarter, approximately every 29.5 days."
+                },
+                {
+                    "fact": "Formation",
+                    "description": "The most widely accepted theory is that the Moon formed about 4.5 billion years ago from debris resulting from a collision between Earth and a Mars-sized body."
+                }
+            ];
+
+            const newFacts = [
+                {
+                    "fact": "No Atmosphere",
+                    "description": "The Moon has a very thin atmosphere called an exosphere, which means it cannot support life as we know it."
+                },
+                {
+                    "fact": "Surface Features",
+                    "description": "The Moon's surface is covered with craters, mountains, and flat plains called maria, which are ancient volcanic lava flows."
+                },
+                {
+                    "fact": "Tidal Effects",
+                    "description": "The gravitational pull of the Moon causes tides on Earth, affecting ocean levels and currents."
+                },
+                {
+                    "fact": "Synchronous Rotation",
+                    "description": "The Moon rotates on its axis at the same rate that it orbits Earth, which is why we always see the same side, known as the near side."
+                },
+                {
+                    "fact": "Exploration",
+                    "description": "The Moon was first visited by humans during NASA's Apollo missions, with Apollo 11 being the first successful manned mission to land on the Moon in 1969."
+                }
+            ];
+
+            function displayFacts(facts) {
+                factsList.innerHTML = '';
+                facts.forEach(fact => {
+                    const listItem = document.createElement('li');
+                    listItem.innerHTML = `<strong>${fact.fact}:</strong> ${fact.description}`;
+                    factsList.appendChild(listItem);
+                });
+            }
+
+            displayFacts(initialFacts);
+
+            replaceButton.addEventListener('click', () => {
+                displayFacts(newFacts);
+            });
+        });
+    </script>
+</body>
+</html>
